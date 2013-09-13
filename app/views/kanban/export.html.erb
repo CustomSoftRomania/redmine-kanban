@@ -1,0 +1,28 @@
+<html>
+<head>
+  <style type="text/css">
+    .issue {
+      display: inline-block;
+      float: left;
+      height: 180px;
+      width: 120px;
+      padding: 20px 50px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <% @issues.each do |issue| %>
+    <div class="issue">
+      <center>#<%= issue.id%></center>
+      <center>
+        <h3><%= issue.subject %></h3>
+      </center>
+      
+      <div class="assignee">
+        <%= issue.try(:assigned_to).try(:name) || "unassigned"%>
+      </div>
+    </div>
+  <% end %>
+</body>
+</html>
